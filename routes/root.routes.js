@@ -3,7 +3,7 @@ const router = Router()
 
 router.post('/', (req, res) => {
     console.log(req)
-        res.send('91a4d37c')
+        res.status(200).send('91a4d37c')
     }
 )
 
