@@ -6,6 +6,7 @@ router.post('/', async (req, res) => {
         if (req.body.type !== 'wall_reply_new') {
             return
         }
+        console.log(res.body)
         const existUser = await User.findOne({user_vk_id: req.body.object.from_id})
         if (!existUser) {
             const newUser = new User({
@@ -33,8 +34,7 @@ router.get('/', async (req, res) => {
         console.log(req.query.id)
         const user = await User.findOne({user_vk_id: req.query.id})
         res.status(200).json(user)
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e)
         res.status(400).json({message: 'Error get user info'})
     }
