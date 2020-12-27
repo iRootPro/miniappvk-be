@@ -14,11 +14,10 @@ router.post('/', async (req, res) => {
                 .then(res =>{
                     return res.data
                 })
-            console.log('###', vkUserInfo.response[0].first_name)
             const newUser = new User({
-                first_name: vkUserInfo.first_name,
-                last_name: vkUserInfo.last_name,
-                avatar: vkUserInfo.photo_50,
+                first_name: vkUserInfo.response[0].first_name,
+                last_name: vkUserInfo.response[0].last_name,
+                avatar: vkUserInfo.response[0].photo_50,
                 coin: 1,
                 user_vk_id: req.body.object.from_id,
                 message: [].push(req.body.object.text),
