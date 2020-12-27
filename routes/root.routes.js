@@ -1,3 +1,5 @@
+import {vkAPI} from "../api/vkAPI";
+
 const Router = require('express')
 const User = require('./../models/User')
 const router = Router()
@@ -9,6 +11,10 @@ router.post('/', async (req, res) => {
         }
         const existUser = await User.findOne({user_vk_id: req.body.object.from_id})
         if (!existUser) {
+            vkAPI.getUserInfo(req.body.object.from_id)
+                .then(res =>{
+                    console.log('### RES:', res)
+                })
             const newUser = new User({
                 coin: 1,
                 user_vk_id: req.body.object.from_id,
