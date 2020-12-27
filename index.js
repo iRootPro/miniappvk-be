@@ -13,8 +13,8 @@ app.use(express.json())
 app.use('', rootRouter)
 
 const httpsOptions = {
-    cert: fs.readdirSync(path.join(__dirname, 'ssl', 'server.crt')),
-    key: fs.readdirSync(path.join(__dirname, 'ssl', 'server.key'))
+    cert: fs.readFileSync(path.join(__dirname, 'ssl', 'cert.pem')),
+    key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem'))
 }
 
 
@@ -26,9 +26,6 @@ const start = async () => {
             console.log(`Server started on ${PORT} port...`)
         })
 
-        // app.listen(PORT, () => {
-        //     console.log(`Server started on ${PORT} port...`)
-        // })
     } catch (e) {
         console.log(e)
     }
