@@ -13,12 +13,13 @@ router.post('/', async (req, res) => {
                 coin: 1,
                 user_vk_id: req.body.object.from_id,
                 message: [].push(req.body.object.text),
+                comment_id: null
             })
             await newUser.save()
             console.log(`New user with #id: ${req.body.object.from_id} saved in DB`)
             return
         } else {
-            if (existUser.comment_id > req.body.object.id) {
+            if (existUser.comment_id < req.body.object.id) {
                 existUser.coin += 1
                 existUser.message.push(req.body.object.text)
                 existUser.comment_id = req.body.object.comment_id
