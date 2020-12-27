@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require('axios');
 
 
 const instance = axios.create({
@@ -6,8 +6,10 @@ const instance = axios.create({
     withCredentials: true
 })
 
-export const vkAPI = {
+const vkAPI = {
     async getUserInfo(id) {
         return instance.get(`users.get?user_id=${id}&v=5.52`)
     }
 }
+
+module.exports = vkAPI

@@ -1,7 +1,7 @@
-import {vkAPI} from "../api/vkAPI";
 
 const Router = require('express')
 const User = require('./../models/User')
+const vkAPI = require('./../api/vkAPI')
 const router = Router()
 
 router.post('/', async (req, res) => {
