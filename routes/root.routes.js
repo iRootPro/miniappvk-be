@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
                 .then(res =>{
                     return res.data
                 })
-            console.log('###', vkUserInfo.first_name)
+            console.log('###', vkUserInfo.response.first_name)
             const newUser = new User({
                 first_name: vkUserInfo.first_name,
                 last_name: vkUserInfo.last_name,
