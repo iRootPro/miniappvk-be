@@ -1,4 +1,4 @@
 {
-  "serverPort": 80,
+  "serverPort": 443,
   "dbURL": "mongodb+srv://admin:jhbvtldcbhb@cluster.xufk9.mongodb.net/vkmini?retryWrites=true&w=majority"
 }
