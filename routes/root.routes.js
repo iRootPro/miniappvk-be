@@ -3,7 +3,7 @@ const User = require('./../models/User')
 const router = Router()
 
 router.post('/', async (req, res) => {
-        console.log(req.body)
+        console.log(req)
         if (req.body.type !== 'wall_reply_new') {
             return
         }
