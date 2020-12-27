@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
             if (existUser.comment_id < req.body.object.id) {
                 existUser.coin += 1
                 existUser.message.push(req.body.object.text)
-                existUser.comment_id = req.body.object.comment_id
+                existUser.comment_id = req.body.object.id
                 await existUser.save()
                 console.log(`User with #id: ${req.body.object.from_id} updated`)
                 return
