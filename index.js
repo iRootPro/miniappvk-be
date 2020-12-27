@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const https = require('https')
 const config = require('config')
 const mongoose = require('mongoose')
@@ -10,6 +11,7 @@ const PORT = config.get('serverPort')
 const dbURL = config.get('dbURL')
 
 app.use(express.json())
+app.use(cors())
 app.use('', rootRouter)
 
 const httpsOptions = {
