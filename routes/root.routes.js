@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
         if (!existUser) {
             vkAPI.getUserInfo(req.body.object.from_id)
                 .then(res =>{
-                    console.log('### RES:', res)
+                    console.log('### RES:', res.data)
                 })
             const newUser = new User({
                 coin: 1,
