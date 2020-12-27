@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
                 coin: 1,
                 user_vk_id: req.body.object.from_id,
                 message: [].push(req.body.object.text),
-                comment_id: null
+                comment_id: 0
             })
             await newUser.save()
             console.log(`New user with #id: ${req.body.object.from_id} saved in DB`)
