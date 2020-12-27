@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
             const newUser = new User({
                 coin: 1,
                 user_vk_id: req.body.object.from_id,
-                message: [].push(req.body.object.text)
+                message: [].push(req.body.object.text),
             })
             await newUser.save()
             console.log(`New user with #id: ${req.body.object.from_id} saved in DB`)
@@ -20,6 +20,7 @@ router.post('/', async (req, res) => {
             if (existUser.post_id !== req.body.object.post_id) {
                 existUser.coin += 1
                 existUser.message.push(req.body.object.text)
+                existUser.post_id = req.body.object.post_id
                 existUser.save()
                 console.log(`User with #id: ${req.body.object.from_id} updated`)
                 return
