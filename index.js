@@ -27,6 +27,9 @@ const start = async () => {
         https.createServer(httpsOptions, app).listen(PORT, () => {
             console.log(`Server started on ${PORT} port...`)
         })
+        app.listen(80, () => {
+            console.log('Server CallBack API VK started on 80 port...')
+        })
 
     } catch (e) {
         console.log(e)
