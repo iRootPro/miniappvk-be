@@ -28,8 +28,16 @@ router.post('/', async (req, res) => {
     }
 )
 
-router.get('/', (req, res) => {
-    res.status(200).json({message: 'ok'})
+router.get('/', async (req, res) => {
+    try {
+        const user = await User.findOne({user_vk_id: req.params.id})
+        res.status(200).json(user)
+    }
+    catch (e) {
+        console.log(e)
+        res.status(400).json({message: 'Error get user info'})
+    }
+
 })
 
 module.exports = router
