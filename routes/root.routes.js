@@ -3,7 +3,7 @@ const User = require('./../models/User')
 const router = Router()
 
 router.post('/', async (req, res) => {
-    console.log(req.body)
+        console.log(req.body)
         if (req.body.type !== 'wall_reply_new') {
             return
         }
@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
             console.log(`New user with #id: ${req.body.object.from_id} saved in DB`)
             return
         } else {
-            console.log('Comment ID: ', existUser.comment_id)
             if (existUser.comment_id < req.body.object.id) {
                 existUser.coin += 1
                 existUser.message.push(req.body.object.text)
@@ -37,12 +36,26 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        console.log(req.query.id)
         const user = await User.findOne({user_vk_id: req.query.id})
-        res.status(200).json(user)
+        return res.status(200).json(user)
     } catch (e) {
         console.log(e)
-        res.status(400).json({message: 'Error get user info'})
+        return res.status(400).json({message: 'Error get user info'})
+    }
+
+})
+
+
+router.get('/rating', async (req, res) => {
+    try {
+        const users = await User.find().sort({coin: -1})
+        if (users.length > 0) {
+            return res.status(200).json(users)
+        }
+        res.status(200).json({message: 'Рейтинг выводится только если в базе более 1 пользователя'})
+    } catch (e) {
+        console.log(e)
+        return res.status(400).json({message: 'Error get rating info'})
     }
 
 })
