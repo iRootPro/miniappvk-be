@@ -10,10 +10,11 @@ router.post('/', async (req, res) => {
         }
         const existUser = await User.findOne({user_vk_id: req.body.object.from_id})
         if (!existUser) {
-            vkAPI.getUserInfo(req.body.object.from_id)
+            const vkUserInfo = await vkAPI.getUserInfo(req.body.object.from_id)
                 .then(res =>{
-                    console.log('### RES:', res.data)
+                    return res.data
                 })
+            console.log('###', vkUserInfo)
             const newUser = new User({
                 coin: 1,
                 user_vk_id: req.body.object.from_id,
