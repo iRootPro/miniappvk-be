@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
+        console.log(req.query.id)
         const user = await User.findOne({user_vk_id: req.params.id})
         res.status(200).json(user)
     }
