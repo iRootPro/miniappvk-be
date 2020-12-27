@@ -17,11 +17,13 @@ router.post('/', async (req, res) => {
             console.log(`New user with #id: ${req.body.object.from_id} saved in DB`)
             return
         } else {
-            existUser.coin += 1
-            existUser.message.push(req.body.object.text)
-            existUser.save()
-            console.log(req.body.object)
-            console.log(`User with #id: ${req.body.object.from_id} updated`)
+            if (existUser.post_id !== req.body.object.post_id) {
+                existUser.coin += 1
+                existUser.message.push(req.body.object.text)
+                existUser.save()
+                console.log(`User with #id: ${req.body.object.from_id} updated`)
+                return
+            }
             return
         }
         // registration Server on vk
