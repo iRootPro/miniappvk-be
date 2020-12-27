@@ -4,7 +4,7 @@ const User = new Schema({
     coin: {type: Number, default: 0},
     user_vk_id: {type: Number, required: true},
     message: [{type: String}],
-    comment_id: {type: Number, default: 0, required: true}
+    comment_id: {type: Number, default: 0}
 })
 
 module.exports = model('User', User)
