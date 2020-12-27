@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
 
 router.get('/rating', async (req, res) => {
     try {
-        const users = await User.find().sort({coin: -1})
+        const users = await User.find().sort({coin: -1}.limit(10))
         if (users.length > 0) {
             return res.status(200).json(users)
         }
