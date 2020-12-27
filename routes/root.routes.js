@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
         if (req.body.type !== 'wall_reply_new') {
             return
         }
-        console.log(res.body)
+        console.log(req.body)
         const existUser = await User.findOne({user_vk_id: req.body.object.from_id})
         if (!existUser) {
             const newUser = new User({
