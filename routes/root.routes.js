@@ -5,7 +5,7 @@ const vkAPI = require('./../api/vkAPI')
 const router = Router()
 
 router.post('/', async (req, res) => {
-        console.log(req)
+        console.log(req.body)
         if (req.body.type !== 'wall_reply_new') {
             return
         }
