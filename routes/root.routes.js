@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
                 existUser.coin += 1
                 existUser.message.push(req.body.object.text)
                 existUser.comment_id = req.body.object.comment_id
-                existUser.save()
+                await existUser.save()
                 console.log(`User with #id: ${req.body.object.from_id} updated`)
                 return
             }
