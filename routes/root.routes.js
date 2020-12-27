@@ -6,7 +6,6 @@ router.post('/', async (req, res) => {
         if (req.body.type !== 'wall_reply_new') {
             return
         }
-        console.log(req.body)
         const existUser = await User.findOne({user_vk_id: req.body.object.from_id})
         if (!existUser) {
             const newUser = new User({
@@ -21,6 +20,7 @@ router.post('/', async (req, res) => {
             existUser.coin += 1
             existUser.message.push(req.body.object.text)
             existUser.save()
+            console.log(req.body.object)
             console.log(`User with #id: ${req.body.object.from_id} updated`)
             return
         }
