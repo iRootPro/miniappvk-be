@@ -7,7 +7,22 @@ router.post('/', async (req, res) => {
             return
         }
         const existUser = await User.findOne({user_vk_id: req.body.object.from_id})
-        console.log('### user:', existUser)
+        if (!existUser) {
+            const newUser = new User({
+                coin: 1,
+                user_vk_id: req.body.object.from_id,
+                message: [].push(req.body.object.text)
+            })
+            await newUser.save()
+            console.log(`New user with #id: ${req.body.object.from_id} saved in DB`)
+            return
+        } else {
+            existUser.coin += 1
+            existUser.message.push(req.body.object.text)
+            existUser.save()
+            console.log(`User with #id: ${req.body.object.from_id} updated`)
+            return
+        }
         // registration Server on vk
         // res.status(200).send('91a4d37c')
     }
