@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="af428f99-9934-46fe-aa6f-316d7de7ad00" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608920376240</updated>
       <workItem from="1608920377259" duration="2668000" />
-      <workItem from="1608986206737" duration="21513000" />
+      <workItem from="1608986206737" duration="22996000" />
     </task>
     <servers />
   </component>
@@ -81,5 +82,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="605" y="301" key="run.anything.popup" timestamp="1609134622673">
+      <screen x="0" y="25" width="2048" height="1255" />
+    </state>
+    <state x="605" y="301" key="run.anything.popup/0.25.2048.1255@0.25.2048.1255" timestamp="1609134622673" />
   </component>
 </project>
